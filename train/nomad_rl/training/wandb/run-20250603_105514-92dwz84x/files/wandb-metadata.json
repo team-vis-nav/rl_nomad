@@ -1,0 +1,46 @@
+{
+  "os": "Linux-6.8.0-59-generic-x86_64-with-glibc2.10",
+  "python": "CPython 3.8.5",
+  "startedAt": "2025-06-03T15:55:14.306502Z",
+  "args": [
+    "--config",
+    "/home/tuandang/tuandang/quanganh/visualnav-transformer/train/config/nomad_rl.yaml"
+  ],
+  "program": "nomad_rl_trainer.py",
+  "codePath": "train/nomad_rl/training/nomad_rl_trainer.py",
+  "git": {
+    "remote": "https://github.com/robodhruv/visualnav-transformer.git",
+    "commit": "dca79815b704e5aa9c6bdc3082351f9e3b2848c2"
+  },
+  "email": "endtheme1212@gmail.com",
+  "root": "/home/tuandang/tuandang/quanganh/visualnav-transformer/train/nomad_rl/training",
+  "host": "ice",
+  "executable": "/home/tuandang/miniconda3/envs/nomad_train/bin/python3",
+  "codePathLocal": "nomad_rl_trainer.py",
+  "cpu_count": 24,
+  "cpu_count_logical": 32,
+  "gpu": "NVIDIA RTX A6000",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "1967315451904",
+      "used": "726927876096"
+    }
+  },
+  "memory": {
+    "total": "67179106304"
+  },
+  "cpu": {
+    "count": 24,
+    "countLogical": 32
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA RTX A6000",
+      "memoryTotal": "51527024640",
+      "cudaCores": 10752,
+      "architecture": "Ampere"
+    }
+  ],
+  "cudaVersion": "12.9"
+}

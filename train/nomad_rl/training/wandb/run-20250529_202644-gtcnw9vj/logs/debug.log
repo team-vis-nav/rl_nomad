@@ -1,0 +1,107 @@
+2025-05-29 20:26:44,160 INFO    MainThread:84540 [wandb_setup.py:_flush():76] Loading settings from /home/tuandang/.config/wandb/settings
+2025-05-29 20:26:44,161 INFO    MainThread:84540 [wandb_setup.py:_flush():76] Loading settings from /home/tuandang/tuandang/quanganh/visualnav-transformer/train/nomad_rl/training/wandb/settings
+2025-05-29 20:26:44,161 INFO    MainThread:84540 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2025-05-29 20:26:44,161 INFO    MainThread:84540 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'train/nomad_rl/training/nomad_rl_trainer.py', 'program': 'nomad_rl_trainer.py'}
+2025-05-29 20:26:44,161 INFO    MainThread:84540 [wandb_init.py:_log_setup():428] Logging user logs to /home/tuandang/tuandang/quanganh/visualnav-transformer/train/nomad_rl/training/wandb/run-20250529_202644-gtcnw9vj/logs/debug.log
+2025-05-29 20:26:44,161 INFO    MainThread:84540 [wandb_init.py:_log_setup():429] Logging internal logs to /home/tuandang/tuandang/quanganh/visualnav-transformer/train/nomad_rl/training/wandb/run-20250529_202644-gtcnw9vj/logs/debug-internal.log
+2025-05-29 20:26:44,161 INFO    MainThread:84540 [wandb_init.py:init():462] calling init triggers
+2025-05-29 20:26:44,161 INFO    MainThread:84540 [wandb_init.py:init():465] wandb.init called with sweep_config: {}
+config: {'scene_names': ['FloorPlan1', 'FloorPlan2', 'FloorPlan3', 'FloorPlan4', 'FloorPlan5', 'FloorPlan201', 'FloorPlan202', 'FloorPlan203', 'FloorPlan204', 'FloorPlan205', 'FloorPlan301', 'FloorPlan302', 'FloorPlan303', 'FloorPlan304', 'FloorPlan305'], 'image_size': [96, 96], 'max_episode_steps': 500, 'success_distance': 1.0, 'context_size': 5, 'goal_prob': 0.5, 'encoding_size': 256, 'mha_num_attention_heads': 4, 'mha_num_attention_layers': 4, 'mha_ff_dim_factor': 4, 'hidden_dim': 512, 'pretrained_vision_encoder': None, 'freeze_vision_encoder': False, 'total_timesteps': 1000000, 'rollout_steps': 2048, 'buffer_size': 2048, 'batch_size': 64, 'ppo_epochs': 10, 'learning_rate': '3e-4', 'gamma': 0.99, 'lam': 0.95, 'clip_ratio': 0.2, 'entropy_coef': 0.01, 'value_coef': 0.5, 'distance_coef': 0.1, 'max_grad_norm': 0.5, 'device': 'cuda', 'log_freq': 10, 'save_freq': 50, 'save_dir': './checkpoints/nomad_rl', 'use_wandb': True, 'wandb_project': 'nomad-rl-ai2thor', 'run_name': 'nomad_rl_experiment_1', 'eval_episodes': 10, 'eval_freq': 100}
+2025-05-29 20:26:44,162 INFO    MainThread:84540 [wandb_init.py:init():515] starting backend
+2025-05-29 20:26:44,162 INFO    MainThread:84540 [backend.py:_multiprocessing_setup():97] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-05-29 20:26:44,181 INFO    MainThread:84540 [backend.py:ensure_launched():217] starting backend process...
+2025-05-29 20:26:44,189 INFO    MainThread:84540 [backend.py:ensure_launched():222] started backend process with pid: 84549
+2025-05-29 20:26:44,190 INFO    MainThread:84540 [wandb_init.py:init():525] backend started and connected
+2025-05-29 20:26:44,192 INFO    MainThread:84540 [wandb_init.py:init():596] updated telemetry
+2025-05-29 20:26:44,198 INFO    MainThread:84540 [wandb_init.py:init():627] communicating run to backend with 30 second timeout
+2025-05-29 20:26:44,700 INFO    MainThread:84540 [wandb_run.py:_on_init():1924] communicating current version
+2025-05-29 20:26:44,775 INFO    MainThread:84540 [wandb_run.py:_on_init():1928] got version response upgrade_message: "wandb version 0.19.11 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2025-05-29 20:26:44,775 INFO    MainThread:84540 [wandb_init.py:init():662] starting run threads in backend
+2025-05-29 20:26:46,046 INFO    MainThread:84540 [wandb_run.py:_console_start():1898] atexit reg
+2025-05-29 20:26:46,047 INFO    MainThread:84540 [wandb_run.py:_redirect():1771] redirect: SettingsConsole.REDIRECT
+2025-05-29 20:26:46,047 INFO    MainThread:84540 [wandb_run.py:_redirect():1776] Redirecting console.
+2025-05-29 20:26:46,047 INFO    MainThread:84540 [wandb_run.py:_redirect():1832] Redirects installed.
+2025-05-29 20:26:46,047 INFO    MainThread:84540 [wandb_init.py:init():688] run started, returning control to user process
+2025-05-29 20:26:50,267 INFO    MainThread:84540 [wandb_run.py:_atexit_cleanup():1867] got exitcode: 1
+2025-05-29 20:26:50,268 INFO    MainThread:84540 [wandb_run.py:_restore():1839] restore
+2025-05-29 20:26:52,568 INFO    MainThread:84540 [wandb_run.py:_on_finish():1996] got exit ret: file_counts {
+  wandb_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 940
+  total_bytes: 940
+}
+
+2025-05-29 20:26:52,673 INFO    MainThread:84540 [wandb_run.py:_on_finish():1996] got exit ret: file_counts {
+  wandb_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 940
+  total_bytes: 940
+}
+
+2025-05-29 20:26:52,775 INFO    MainThread:84540 [wandb_run.py:_on_finish():1996] got exit ret: file_counts {
+  wandb_count: 6
+}
+pusher_stats {
+  uploaded_bytes: 940
+  total_bytes: 13089
+}
+
+2025-05-29 20:26:52,878 INFO    MainThread:84540 [wandb_run.py:_on_finish():1996] got exit ret: file_counts {
+  wandb_count: 6
+}
+pusher_stats {
+  uploaded_bytes: 3907
+  total_bytes: 13089
+}
+
+2025-05-29 20:26:52,981 INFO    MainThread:84540 [wandb_run.py:_on_finish():1996] got exit ret: file_counts {
+  wandb_count: 6
+}
+pusher_stats {
+  uploaded_bytes: 13089
+  total_bytes: 13089
+}
+
+2025-05-29 20:26:53,083 INFO    MainThread:84540 [wandb_run.py:_on_finish():1996] got exit ret: file_counts {
+  wandb_count: 6
+}
+pusher_stats {
+  uploaded_bytes: 13089
+  total_bytes: 13089
+}
+
+2025-05-29 20:26:53,186 INFO    MainThread:84540 [wandb_run.py:_on_finish():1996] got exit ret: file_counts {
+  wandb_count: 6
+}
+pusher_stats {
+  uploaded_bytes: 13089
+  total_bytes: 13089
+}
+
+2025-05-29 20:26:53,496 INFO    MainThread:84540 [wandb_run.py:_on_finish():1996] got exit ret: file_counts {
+  wandb_count: 6
+}
+pusher_stats {
+  uploaded_bytes: 13089
+  total_bytes: 13089
+}
+
+2025-05-29 20:26:53,706 INFO    MainThread:84540 [wandb_run.py:_on_finish():1996] got exit ret: done: true
+exit_result {
+}
+file_counts {
+  wandb_count: 6
+}
+pusher_stats {
+  uploaded_bytes: 13089
+  total_bytes: 13089
+}
+local_info {
+}
+
+2025-05-29 20:26:54,814 INFO    MainThread:84540 [wandb_run.py:_footer_history_summary_info():3104] rendering history
+2025-05-29 20:26:54,814 INFO    MainThread:84540 [wandb_run.py:_footer_history_summary_info():3136] rendering summary
+2025-05-29 20:26:54,818 INFO    MainThread:84540 [wandb_run.py:_footer_sync_info():3060] logging synced files

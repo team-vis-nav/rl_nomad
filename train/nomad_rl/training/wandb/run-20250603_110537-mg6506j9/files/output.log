@@ -1,0 +1,92 @@
+/home/tuandang/miniconda3/envs/nomad_train/lib/python3.8/site-packages/torch/nn/modules/transformer.py:307: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+Starting training for 1000000 timesteps...
+Device: cuda
+Scene names: ['FloorPlan1']
+
+--- Update 10 (Timesteps: 20480) ---
+Episode Reward: -131.74 ± 146.76
+Episode Length: 458.9
+Success Rate: 65.00%
+Goal-Conditioned Reward: -200.17
+Exploration Reward: -63.31
+Policy Loss: -0.0037
+Value Loss: 61.3677
+Entropy: 1.4845
+Approx KL: 0.0188
+
+--- Update 20 (Timesteps: 40960) ---
+Episode Reward: -105.30 ± 152.71
+Episode Length: 474.7
+Success Rate: 60.00%
+Goal-Conditioned Reward: -208.11
+Exploration Reward: -16.84
+Policy Loss: -0.0086
+Value Loss: 36.4177
+Entropy: 1.4089
+Approx KL: 0.0228
+
+--- Update 30 (Timesteps: 61440) ---
+Episode Reward: -77.97 ± 126.20
+Episode Length: 477.3
+Success Rate: 56.00%
+Goal-Conditioned Reward: -161.58
+Exploration Reward: -34.80
+Policy Loss: -0.0073
+Value Loss: 15.2855
+Entropy: 0.9187
+Approx KL: 0.0214
+
+--- Update 40 (Timesteps: 81920) ---
+Episode Reward: -52.80 ± 95.11
+Episode Length: 493.1
+Success Rate: 54.00%
+Goal-Conditioned Reward: -133.54
+Exploration Reward: -25.72
+Policy Loss: -0.0191
+Value Loss: 28.8412
+Entropy: 1.2401
+Approx KL: 0.0426
+
+--- Update 50 (Timesteps: 102400) ---
+Episode Reward: -99.23 ± 207.37
+Episode Length: 496.4
+Success Rate: 48.00%
+Goal-Conditioned Reward: -118.51
+Exploration Reward: -86.18
+Policy Loss: -0.0060
+Value Loss: 38.0439
+Entropy: 1.5145
+Approx KL: 0.0260
+Model saved to ./checkpoints/nomad_rl/nomad_rl_50.pth
+
+--- Update 60 (Timesteps: 122880) ---
+Episode Reward: -113.19 ± 221.72
+Episode Length: 481.5
+Success Rate: 50.00%
+Goal-Conditioned Reward: -113.82
+Exploration Reward: -66.34
+Policy Loss: -0.0010
+Value Loss: 37.9815
+Entropy: 1.4673
+Approx KL: 0.0119
+Traceback (most recent call last):
+  File "nomad_rl_trainer.py", line 358, in <module>
+    main()
+  File "nomad_rl_trainer.py", line 355, in main
+    trainer.train(config['total_timesteps'])
+  File "nomad_rl_trainer.py", line 274, in train
+    rollout_stats = self.collect_rollouts(self.config['rollout_steps'])
+  File "nomad_rl_trainer.py", line 126, in collect_rollouts
+    next_obs, reward, done, info = self.env.step(action.cpu().item())
+  File "/home/tuandang/tuandang/quanganh/visualnav-transformer/train/nomad_rl/environments/ai2thor_nomad_env.py", line 145, in step
+    event = self.controller.step(action=action_map[action])
+  File "/home/tuandang/miniconda3/envs/nomad_train/lib/python3.8/site-packages/ai2thor/controller.py", line 979, in step
+    self.last_event = self.server.receive()
+  File "/home/tuandang/miniconda3/envs/nomad_train/lib/python3.8/site-packages/ai2thor/fifo_server.py", line 229, in receive
+    metadata, files = self._recv_message(
+  File "/home/tuandang/miniconda3/envs/nomad_train/lib/python3.8/site-packages/ai2thor/fifo_server.py", line 145, in _recv_message
+    header = self._read_with_timeout(
+  File "/home/tuandang/miniconda3/envs/nomad_train/lib/python3.8/site-packages/ai2thor/fifo_server.py", line 125, in _read_with_timeout
+    part = os.read(server_pipe.fileno(), message_size)
+KeyboardInterrupt

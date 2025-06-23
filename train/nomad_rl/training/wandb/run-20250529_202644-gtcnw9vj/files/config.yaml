@@ -1,0 +1,149 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.12.18
+    framework: torch
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    python_version: 3.8.5
+    start_time: 1748568404
+    t:
+      1:
+      - 1
+      - 41
+      - 55
+      2:
+      - 1
+      - 41
+      - 55
+      3:
+      - 13
+      - 16
+      4: 3.8.5
+      5: 0.12.18
+      8:
+      - 5
+batch_size:
+  desc: null
+  value: 64
+buffer_size:
+  desc: null
+  value: 2048
+clip_ratio:
+  desc: null
+  value: 0.2
+context_size:
+  desc: null
+  value: 5
+device:
+  desc: null
+  value: cuda
+distance_coef:
+  desc: null
+  value: 0.1
+encoding_size:
+  desc: null
+  value: 256
+entropy_coef:
+  desc: null
+  value: 0.01
+eval_episodes:
+  desc: null
+  value: 10
+eval_freq:
+  desc: null
+  value: 100
+freeze_vision_encoder:
+  desc: null
+  value: false
+gamma:
+  desc: null
+  value: 0.99
+goal_prob:
+  desc: null
+  value: 0.5
+hidden_dim:
+  desc: null
+  value: 512
+image_size:
+  desc: null
+  value:
+  - 96
+  - 96
+lam:
+  desc: null
+  value: 0.95
+learning_rate:
+  desc: null
+  value: 3e-4
+log_freq:
+  desc: null
+  value: 10
+max_episode_steps:
+  desc: null
+  value: 500
+max_grad_norm:
+  desc: null
+  value: 0.5
+mha_ff_dim_factor:
+  desc: null
+  value: 4
+mha_num_attention_heads:
+  desc: null
+  value: 4
+mha_num_attention_layers:
+  desc: null
+  value: 4
+ppo_epochs:
+  desc: null
+  value: 10
+pretrained_vision_encoder:
+  desc: null
+  value: null
+rollout_steps:
+  desc: null
+  value: 2048
+run_name:
+  desc: null
+  value: nomad_rl_experiment_1
+save_dir:
+  desc: null
+  value: ./checkpoints/nomad_rl
+save_freq:
+  desc: null
+  value: 50
+scene_names:
+  desc: null
+  value:
+  - FloorPlan1
+  - FloorPlan2
+  - FloorPlan3
+  - FloorPlan4
+  - FloorPlan5
+  - FloorPlan201
+  - FloorPlan202
+  - FloorPlan203
+  - FloorPlan204
+  - FloorPlan205
+  - FloorPlan301
+  - FloorPlan302
+  - FloorPlan303
+  - FloorPlan304
+  - FloorPlan305
+success_distance:
+  desc: null
+  value: 1.0
+total_timesteps:
+  desc: null
+  value: 1000000
+use_wandb:
+  desc: null
+  value: true
+value_coef:
+  desc: null
+  value: 0.5
+wandb_project:
+  desc: null
+  value: nomad-rl-ai2thor

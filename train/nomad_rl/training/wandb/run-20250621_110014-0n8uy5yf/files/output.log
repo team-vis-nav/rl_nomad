@@ -1,0 +1,42 @@
+Initializing trainer with image_size: [224, 224]
+/home/tuandang/miniconda3/envs/nomad_train/lib/python3.8/site-packages/torch/nn/modules/transformer.py:307: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+Creating buffer with image_size: (224, 224)
+Buffer observation shapes: {'rgb': (3, 224, 224), 'context': (15, 224, 224), 'goal_rgb': (3, 224, 224), 'goal_mask': (1,), 'goal_position': (3,)}
+Starting training for 1000000 timesteps...
+Device: cuda
+Scene names: ['FloorPlan1']
+Traceback (most recent call last):
+  File "nomad_rl_trainer.py", line 363, in <module>
+    main()
+  File "nomad_rl_trainer.py", line 360, in main
+    trainer.train(config['total_timesteps'])
+  File "nomad_rl_trainer.py", line 284, in train
+    update_stats = self.update_policy()
+  File "nomad_rl_trainer.py", line 237, in update_policy
+    outputs = self.model.forward(mb_obs, mode="distance")
+  File "/home/tuandang/tuandang/quanganh/visualnav-transformer/train/nomad_rl/models/nomad_rl_model.py", line 64, in forward
+    vision_features = self.vision_encoder(
+  File "/home/tuandang/miniconda3/envs/nomad_train/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/tuandang/miniconda3/envs/nomad_train/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/tuandang/tuandang/quanganh/visualnav-transformer/train/vint_train/models/nomad/nomad_vint.py", line 76, in forward
+    obsgoal_encoding = self.goal_encoder.extract_features(obsgoal_img)
+  File "/home/tuandang/miniconda3/envs/nomad_train/lib/python3.8/site-packages/efficientnet_pytorch/model.py", line 296, in extract_features
+    x = block(x, drop_connect_rate=drop_connect_rate)
+  File "/home/tuandang/miniconda3/envs/nomad_train/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/tuandang/miniconda3/envs/nomad_train/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/tuandang/miniconda3/envs/nomad_train/lib/python3.8/site-packages/efficientnet_pytorch/model.py", line 106, in forward
+    x = self._bn0(x)
+  File "/home/tuandang/miniconda3/envs/nomad_train/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/tuandang/miniconda3/envs/nomad_train/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/tuandang/miniconda3/envs/nomad_train/lib/python3.8/site-packages/torch/nn/modules/normalization.py", line 288, in forward
+    return F.group_norm(
+  File "/home/tuandang/miniconda3/envs/nomad_train/lib/python3.8/site-packages/torch/nn/functional.py", line 2606, in group_norm
+    return torch.group_norm(input, num_groups, weight, bias, eps, torch.backends.cudnn.enabled)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 46.00 MiB. GPU 0 has a total capacity of 47.40 GiB of which 35.56 MiB is free. Process 2276 has 264.07 MiB memory in use. Including non-PyTorch memory, this process has 45.62 GiB memory in use. Of the allocated memory 45.01 GiB is allocated by PyTorch, and 307.72 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

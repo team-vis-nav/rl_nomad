@@ -1,0 +1,15 @@
+{"time":"2025-06-22T03:06:42.299432657-05:00","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"/home/tuandang/tuandang/quanganh/visualnav-transformer/train/nomad_rl2/wandb/run-20250622_030642-eamwnah2/logs/debug-core.log"}
+{"time":"2025-06-22T03:06:42.465608315-05:00","level":"INFO","msg":"created new stream","id":"eamwnah2"}
+{"time":"2025-06-22T03:06:42.465684584-05:00","level":"INFO","msg":"stream: started","id":"eamwnah2"}
+{"time":"2025-06-22T03:06:42.465729915-05:00","level":"INFO","msg":"writer: Do: started","stream_id":"eamwnah2"}
+{"time":"2025-06-22T03:06:42.465807933-05:00","level":"INFO","msg":"handler: started","stream_id":"eamwnah2"}
+{"time":"2025-06-22T03:06:42.465871281-05:00","level":"INFO","msg":"sender: started","stream_id":"eamwnah2"}
+{"time":"2025-06-22T03:06:42.68040802-05:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-22T03:06:47.92623671-05:00","level":"INFO","msg":"stream: closing","id":"eamwnah2"}
+{"time":"2025-06-22T03:06:47.926265128-05:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-22T03:06:47.926317593-05:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-22T03:06:48.269127706-05:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-22T03:06:48.361072547-05:00","level":"INFO","msg":"handler: closed","stream_id":"eamwnah2"}
+{"time":"2025-06-22T03:06:48.361128394-05:00","level":"INFO","msg":"sender: closed","stream_id":"eamwnah2"}
+{"time":"2025-06-22T03:06:48.361130057-05:00","level":"INFO","msg":"writer: Close: closed","stream_id":"eamwnah2"}
+{"time":"2025-06-22T03:06:48.361290299-05:00","level":"INFO","msg":"stream: closed","id":"eamwnah2"}

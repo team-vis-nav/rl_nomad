@@ -1,0 +1,10 @@
+/home/tuandang/miniconda3/envs/nomad_train/lib/python3.8/site-packages/torch/nn/modules/transformer.py:307: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+Traceback (most recent call last):
+  File "two_stage_train.py", line 622, in <module>
+    main()
+  File "two_stage_train.py", line 617, in main
+    trainer = TwoStageTrainer(config)
+  File "two_stage_train.py", line 71, in __init__
+    stage_lr = config.get(f'stage{self.stage}_learning_rate', config['learning_rate'])
+KeyError: 'learning_rate'

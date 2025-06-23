@@ -1,0 +1,27 @@
+{
+    "os": "Linux-6.8.0-59-generic-x86_64-with-glibc2.10",
+    "python": "3.8.5",
+    "heartbeatAt": "2025-05-30T01:26:44.796496",
+    "startedAt": "2025-05-30T01:26:44.157838",
+    "docker": null,
+    "gpu": "NVIDIA RTX A6000",
+    "gpu_count": 1,
+    "cpu_count": 32,
+    "cuda": null,
+    "args": [
+        "--config",
+        "/home/tuandang/tuandang/quanganh/visualnav-transformer/train/config/nomad_rl.yaml"
+    ],
+    "state": "running",
+    "program": "nomad_rl_trainer.py",
+    "codePath": "train/nomad_rl/training/nomad_rl_trainer.py",
+    "git": {
+        "remote": "https://github.com/robodhruv/visualnav-transformer.git",
+        "commit": "dca79815b704e5aa9c6bdc3082351f9e3b2848c2"
+    },
+    "email": "dangthanhtuanit@gmail.com",
+    "root": "/home/tuandang/tuandang/quanganh/visualnav-transformer",
+    "host": "ice",
+    "username": "tuandang",
+    "executable": "/home/tuandang/miniconda3/envs/nomad_train/bin/python3"
+}

@@ -1,0 +1,7 @@
+{"time":"2025-06-21T11:09:01.807690212-05:00","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"/home/tuandang/tuandang/quanganh/visualnav-transformer/train/nomad_rl/training/wandb/run-20250621_110901-zg7m5giy/logs/debug-core.log"}
+{"time":"2025-06-21T11:09:01.975439581-05:00","level":"INFO","msg":"created new stream","id":"zg7m5giy"}
+{"time":"2025-06-21T11:09:01.975484134-05:00","level":"INFO","msg":"stream: started","id":"zg7m5giy"}
+{"time":"2025-06-21T11:09:01.975613492-05:00","level":"INFO","msg":"writer: Do: started","stream_id":"zg7m5giy"}
+{"time":"2025-06-21T11:09:01.975722034-05:00","level":"INFO","msg":"sender: started","stream_id":"zg7m5giy"}
+{"time":"2025-06-21T11:09:01.975840451-05:00","level":"INFO","msg":"handler: started","stream_id":"zg7m5giy"}
+{"time":"2025-06-21T11:09:02.184143033-05:00","level":"INFO","msg":"Starting system monitor"}

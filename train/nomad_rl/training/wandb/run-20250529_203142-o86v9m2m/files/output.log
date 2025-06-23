@@ -1,0 +1,112 @@
+/home/tuandang/miniconda3/envs/nomad_train/lib/python3.8/site-packages/torch/nn/modules/transformer.py:307: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+Starting training for 1000000 timesteps...
+Device: cuda
+Scene names: ['FloorPlan1', 'FloorPlan2', 'FloorPlan3', 'FloorPlan4', 'FloorPlan5', 'FloorPlan201', 'FloorPlan202', 'FloorPlan203', 'FloorPlan204', 'FloorPlan205', 'FloorPlan301', 'FloorPlan302', 'FloorPlan303', 'FloorPlan304', 'FloorPlan305']
+nomad_rl_trainer.py:232: UserWarning: Using a target size (torch.Size([1])) that is different to the input size (torch.Size([])). This will likely lead to incorrect results due to broadcasting. Please ensure they have the same size.
+  distance_loss = F.mse_loss(predicted_distances.squeeze(), target_distances)
+
+--- Update 10 (Timesteps: 20480) ---
+Episode Reward: -140.01 ± 172.07
+Episode Length: 426.1
+Success Rate: 73.33%
+Goal-Conditioned Reward: -173.23
+Exploration Reward: -110.93
+Policy Loss: -0.0021
+Value Loss: 68.6188
+Entropy: 1.6914
+Approx KL: 0.0180
+
+--- Update 20 (Timesteps: 40960) ---
+Episode Reward: -101.14 ± 185.90
+Episode Length: 427.8
+Success Rate: 72.41%
+Goal-Conditioned Reward: -158.71
+Exploration Reward: -49.83
+Policy Loss: -0.0143
+Value Loss: 94.1099
+Entropy: 1.4557
+Approx KL: 0.0201
+Traceback (most recent call last):
+  File "nomad_rl_trainer.py", line 356, in <module>
+    main()
+  File "nomad_rl_trainer.py", line 353, in main
+    trainer.train(config['total_timesteps'])
+  File "nomad_rl_trainer.py", line 275, in train
+    update_stats = self.update_policy()
+  File "nomad_rl_trainer.py", line 208, in update_policy
+    log_probs, values, entropy = self.model.evaluate_actions(mb_obs, mb_actions)
+  File "/home/tuandang/tuandang/quanganh/visualnav-transformer/train/nomad_rl/models/nomad_rl_model.py", line 110, in evaluate_actions
+    outputs = self.forward(observations, mode="all")
+  File "/home/tuandang/tuandang/quanganh/visualnav-transformer/train/nomad_rl/models/nomad_rl_model.py", line 79, in forward
+    results['action_dist'] = Categorical(logits=policy_logits)
+  File "/home/tuandang/miniconda3/envs/nomad_train/lib/python3.8/site-packages/torch/distributions/categorical.py", line 71, in __init__
+    super().__init__(batch_shape, validate_args=validate_args)
+  File "/home/tuandang/miniconda3/envs/nomad_train/lib/python3.8/site-packages/torch/distributions/distribution.py", line 70, in __init__
+    raise ValueError(
+ValueError: Expected parameter logits (Tensor of shape (64, 6)) of distribution Categorical(logits: torch.Size([64, 6])) to satisfy the constraint IndependentConstraint(Real(), 1), but found invalid values:
+tensor([[nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, nan]], device='cuda:0',
+       grad_fn=<SubBackward0>)

@@ -1,0 +1,56 @@
+scene_names:
+  - FloorPlan1
+  - FloorPlan2
+  - FloorPlan3
+  - FloorPlan4
+  - FloorPlan5
+  - FloorPlan6
+  - FloorPlan7
+  - FloorPlan8
+  - FloorPlan8
+  - FloorPlan9
+  - FloorPlan10
+  - FloorPlan11
+  - FloorPlan12
+
+image_size: [224, 224]
+max_episode_steps: 500
+success_distance: 1.0
+context_size: 5
+goal_prob: 0.5
+
+encoding_size: 256
+mha_num_attention_heads: 4
+mha_num_attention_layers: 4
+mha_ff_dim_factor: 4
+hidden_dim: 512
+
+pretrained_vision_encoder: null
+freeze_vision_encoder: false
+
+total_timesteps: 1000000
+rollout_steps: 512
+buffer_size: 512  
+batch_size: 16         
+ppo_epochs: 4          
+
+gamma: 0.99
+lam: 0.95
+clip_ratio: 0.2
+entropy_coef: 0.01
+value_coef: 0.5
+distance_coef: 0.1
+max_grad_norm: 0.5
+
+learning_rate: 0.001
+device: cuda
+log_freq: 10     
+save_freq: 50      
+save_dir: ./checkpoints/nomad_rl
+
+use_wandb: true
+wandb_project: nomad-rl-ai2thor
+run_name: nomad_rl_experiment_1
+
+eval_episodes: 10
+eval_freq: 100

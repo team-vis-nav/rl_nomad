@@ -1,0 +1,7 @@
+model_type: "nomad"
+context_size: 5
+len_traj_pred: 8
+image_size: [85, 64]
+encoding_size: 512
+num_diffusion_iters: 100
+normalize: true

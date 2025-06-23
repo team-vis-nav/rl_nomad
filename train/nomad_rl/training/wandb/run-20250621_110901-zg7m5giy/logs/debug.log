@@ -1,0 +1,22 @@
+2025-06-21 11:09:01,792 INFO    MainThread:774071 [wandb_setup.py:_flush():70] Current SDK version is 0.19.11
+2025-06-21 11:09:01,792 INFO    MainThread:774071 [wandb_setup.py:_flush():70] Configure stats pid to 774071
+2025-06-21 11:09:01,792 INFO    MainThread:774071 [wandb_setup.py:_flush():70] Loading settings from /home/tuandang/.config/wandb/settings
+2025-06-21 11:09:01,792 INFO    MainThread:774071 [wandb_setup.py:_flush():70] Loading settings from /home/tuandang/tuandang/quanganh/visualnav-transformer/train/nomad_rl/training/wandb/settings
+2025-06-21 11:09:01,792 INFO    MainThread:774071 [wandb_setup.py:_flush():70] Loading settings from environment variables
+2025-06-21 11:09:01,792 INFO    MainThread:774071 [wandb_init.py:setup_run_log_directory():724] Logging user logs to /home/tuandang/tuandang/quanganh/visualnav-transformer/train/nomad_rl/training/wandb/run-20250621_110901-zg7m5giy/logs/debug.log
+2025-06-21 11:09:01,792 INFO    MainThread:774071 [wandb_init.py:setup_run_log_directory():725] Logging internal logs to /home/tuandang/tuandang/quanganh/visualnav-transformer/train/nomad_rl/training/wandb/run-20250621_110901-zg7m5giy/logs/debug-internal.log
+2025-06-21 11:09:01,793 INFO    MainThread:774071 [wandb_init.py:init():852] calling init triggers
+2025-06-21 11:09:01,793 INFO    MainThread:774071 [wandb_init.py:init():857] wandb.init called with sweep_config: {}
+config: {'scene_names': ['FloorPlan1'], 'image_size': [224, 224], 'max_episode_steps': 500, 'success_distance': 1.0, 'context_size': 5, 'goal_prob': 0.5, 'encoding_size': 256, 'mha_num_attention_heads': 4, 'mha_num_attention_layers': 4, 'mha_ff_dim_factor': 4, 'hidden_dim': 512, 'pretrained_vision_encoder': None, 'freeze_vision_encoder': False, 'total_timesteps': 1000000, 'rollout_steps': 512, 'buffer_size': 512, 'batch_size': 16, 'ppo_epochs': 4, 'gamma': 0.99, 'lam': 0.95, 'clip_ratio': 0.2, 'entropy_coef': 0.01, 'value_coef': 0.5, 'distance_coef': 0.1, 'max_grad_norm': 0.5, 'learning_rate': 0.001, 'device': 'cuda', 'log_freq': 10, 'save_freq': 50, 'save_dir': './checkpoints/nomad_rl', 'use_wandb': True, 'wandb_project': 'nomad-rl-ai2thor', 'run_name': 'nomad_rl_experiment_1', 'eval_episodes': 10, 'eval_freq': 100, '_wandb': {}}
+2025-06-21 11:09:01,793 INFO    MainThread:774071 [wandb_init.py:init():893] starting backend
+2025-06-21 11:09:01,793 INFO    MainThread:774071 [wandb_init.py:init():897] sending inform_init request
+2025-06-21 11:09:01,806 INFO    MainThread:774071 [backend.py:_multiprocessing_setup():101] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-06-21 11:09:01,806 INFO    MainThread:774071 [wandb_init.py:init():907] backend started and connected
+2025-06-21 11:09:01,807 INFO    MainThread:774071 [wandb_init.py:init():1005] updated telemetry
+2025-06-21 11:09:01,818 INFO    MainThread:774071 [wandb_init.py:init():1029] communicating run to backend with 90.0 second timeout
+2025-06-21 11:09:02,178 INFO    MainThread:774071 [wandb_init.py:init():1104] starting run threads in backend
+2025-06-21 11:09:02,250 INFO    MainThread:774071 [wandb_run.py:_console_start():2573] atexit reg
+2025-06-21 11:09:02,250 INFO    MainThread:774071 [wandb_run.py:_redirect():2421] redirect: wrap_raw
+2025-06-21 11:09:02,250 INFO    MainThread:774071 [wandb_run.py:_redirect():2490] Wrapping output streams.
+2025-06-21 11:09:02,250 INFO    MainThread:774071 [wandb_run.py:_redirect():2513] Redirects installed.
+2025-06-21 11:09:02,251 INFO    MainThread:774071 [wandb_init.py:init():1150] run started, returning control to user process

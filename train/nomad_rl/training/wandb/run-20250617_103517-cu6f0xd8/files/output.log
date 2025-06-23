@@ -1,0 +1,12 @@
+/home/tuandang/miniconda3/envs/nomad_train/lib/python3.8/site-packages/torch/nn/modules/transformer.py:307: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+Traceback (most recent call last):
+  File "nomad_rl_trainer.py", line 349, in <module>
+    main()
+  File "nomad_rl_trainer.py", line 345, in main
+    trainer = NoMaDRLTrainer(config)
+  File "nomad_rl_trainer.py", line 47, in __init__
+    self.optimizer = optim.Adam(self.model.parameters(), lr=config['learning_rate'])
+  File "/home/tuandang/miniconda3/envs/nomad_train/lib/python3.8/site-packages/torch/optim/adam.py", line 46, in __init__
+    if not 0.0 <= lr:
+TypeError: '<=' not supported between instances of 'float' and 'str'
