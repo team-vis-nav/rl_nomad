@@ -1,3 +1,4 @@
 train/nomad_rl/training/checkpoints/
 train/checkpoints
 train/Cirr/checkpoints
+train/Cirr/log_img

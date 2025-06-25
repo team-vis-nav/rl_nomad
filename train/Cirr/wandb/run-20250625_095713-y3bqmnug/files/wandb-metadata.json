@@ -1,0 +1,217 @@
+{
+    "os": "Linux-6.8.0-59-generic-x86_64-with-glibc2.17",
+    "python": "3.8.20",
+    "heartbeatAt": "2025-06-25T14:57:13.958775",
+    "startedAt": "2025-06-25T14:57:13.660000",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--config",
+        "/home/tuandang/tuandang/quanganh/visualnav-transformer/train/config/cirr.yaml",
+        "--dataset",
+        "combined",
+        "--stage",
+        "1",
+        "--mode",
+        "train"
+    ],
+    "state": "running",
+    "program": "Train.py",
+    "codePathLocal": "Train.py",
+    "codePath": "train/Cirr/Train.py",
+    "git": {
+        "remote": "https://github.com/team-vis-nav/rl_nomad.git",
+        "commit": "2f63c279a825c87a6c8ead6dc6dd988e625b1c75"
+    },
+    "email": "visualnavicra@gmail.com",
+    "root": "/home/tuandang/tuandang/huyhoang/git/rl_nomad",
+    "host": "ice",
+    "username": "tuandang",
+    "executable": "/home/tuandang/anaconda3/envs/nomad_train/bin/python3",
+    "cpu_count": 24,
+    "cpu_count_logical": 32,
+    "cpu_freq": {
+        "current": 3621.02759375,
+        "min": 800.0,
+        "max": 4937.5
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 5500.065,
+            "min": 800.0,
+            "max": 5500.0
+        },
+        {
+            "current": 5500.0,
+            "min": 800.0,
+            "max": 5500.0
+        },
+        {
+            "current": 5500.0,
+            "min": 800.0,
+            "max": 5500.0
+        },
+        {
+            "current": 5500.0,
+            "min": 800.0,
+            "max": 5500.0
+        },
+        {
+            "current": 5500.0,
+            "min": 800.0,
+            "max": 5500.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 5500.0
+        },
+        {
+            "current": 5500.0,
+            "min": 800.0,
+            "max": 5500.0
+        },
+        {
+            "current": 5500.0,
+            "min": 800.0,
+            "max": 5500.0
+        },
+        {
+            "current": 5500.0,
+            "min": 800.0,
+            "max": 5800.0
+        },
+        {
+            "current": 5500.0,
+            "min": 800.0,
+            "max": 5800.0
+        },
+        {
+            "current": 5500.0,
+            "min": 800.0,
+            "max": 5800.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 5800.0
+        },
+        {
+            "current": 5499.888,
+            "min": 800.0,
+            "max": 5500.0
+        },
+        {
+            "current": 5520.446,
+            "min": 800.0,
+            "max": 5500.0
+        },
+        {
+            "current": 5500.0,
+            "min": 800.0,
+            "max": 5500.0
+        },
+        {
+            "current": 5471.502,
+            "min": 800.0,
+            "max": 5500.0
+        },
+        {
+            "current": 4307.692,
+            "min": 800.0,
+            "max": 4300.0
+        },
+        {
+            "current": 4296.0,
+            "min": 800.0,
+            "max": 4300.0
+        },
+        {
+            "current": 4299.75,
+            "min": 800.0,
+            "max": 4300.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 4300.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 4300.0
+        },
+        {
+            "current": 4161.875,
+            "min": 800.0,
+            "max": 4300.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 4300.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 4300.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 4300.0
+        },
+        {
+            "current": 4316.503,
+            "min": 800.0,
+            "max": 4300.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 4300.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 4300.0
+        },
+        {
+            "current": 4323.709,
+            "min": 800.0,
+            "max": 4300.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 4300.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 4300.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 4300.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 1832.2052917480469,
+            "used": 1321.5559883117676
+        }
+    },
+    "gpu": "NVIDIA RTX A6000",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA RTX A6000",
+            "memory_total": 51527024640
+        }
+    ],
+    "memory": {
+        "total": 62.5654182434082
+    }
+}

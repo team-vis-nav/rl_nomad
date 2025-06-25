@@ -1,0 +1,189 @@
+wandb_version: 1
+
+dataset:
+  desc: null
+  value: combined
+image_size:
+  desc: null
+  value:
+  - 224
+  - 224
+max_episode_steps:
+  desc: null
+  value: 500
+success_distance:
+  desc: null
+  value: 1.0
+context_size:
+  desc: null
+  value: 5
+goal_prob:
+  desc: null
+  value: 0.5
+eval_goal_prob:
+  desc: null
+  value: 1.0
+encoding_size:
+  desc: null
+  value: 256
+mha_num_attention_heads:
+  desc: null
+  value: 4
+mha_num_attention_layers:
+  desc: null
+  value: 4
+mha_ff_dim_factor:
+  desc: null
+  value: 4
+hidden_dim:
+  desc: null
+  value: 512
+lstm_hidden_size:
+  desc: null
+  value: 256
+lstm_num_layers:
+  desc: null
+  value: 2
+curriculum_window_size:
+  desc: null
+  value: 100
+curriculum_success_threshold:
+  desc: null
+  value: 0.6
+curriculum_min_episodes:
+  desc: null
+  value: 50
+curriculum_update_freq:
+  desc: null
+  value: 10
+training_stage:
+  desc: null
+  value: 1
+stage1_timesteps:
+  desc: null
+  value: 1000000
+stage2_timesteps:
+  desc: null
+  value: 2000000
+learning_rate:
+  desc: null
+  value: 0.0003
+value_clip:
+  desc: null
+  value: 10.0
+stage1_learning_rate:
+  desc: null
+  value: 0.001
+stage2_learning_rate:
+  desc: null
+  value: 0.0001
+success_reward:
+  desc: null
+  value: 100.0
+distance_weight:
+  desc: null
+  value: 50.0
+step_penalty:
+  desc: null
+  value: 0.001
+collision_penalty:
+  desc: null
+  value: 2.0
+exploration_bonus:
+  desc: null
+  value: 3.0
+curiosity_weight:
+  desc: null
+  value: 0.1
+rollout_steps:
+  desc: null
+  value: 1024
+buffer_size:
+  desc: null
+  value: 1024
+batch_size:
+  desc: null
+  value: 32
+ppo_epochs:
+  desc: null
+  value: 3
+gamma:
+  desc: null
+  value: 0.99
+lam:
+  desc: null
+  value: 0.95
+clip_ratio:
+  desc: null
+  value: 0.2
+entropy_coef:
+  desc: null
+  value: 0.1
+value_coef:
+  desc: null
+  value: 0.5
+distance_coef:
+  desc: null
+  value: 0.1
+auxiliary_coef:
+  desc: null
+  value: 0.1
+max_grad_norm:
+  desc: null
+  value: 0.5
+use_amp:
+  desc: null
+  value: true
+device:
+  desc: null
+  value: cuda
+eval_episodes:
+  desc: null
+  value: 20
+val_freq:
+  desc: null
+  value: 100
+eval_freq:
+  desc: null
+  value: 100
+log_freq:
+  desc: null
+  value: 10
+save_freq:
+  desc: null
+  value: 50
+save_dir:
+  desc: null
+  value: ./checkpoints/curriculum
+use_wandb:
+  desc: null
+  value: true
+wandb_project:
+  desc: null
+  value: nomad-rl-curriculum
+run_name:
+  desc: null
+  value: curriculum_training
+_wandb:
+  desc: null
+  value:
+    python_version: 3.8.20
+    cli_version: 0.17.7
+    framework: torch
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    start_time: 1750866788
+    t:
+      1:
+      - 1
+      - 41
+      - 55
+      3:
+      - 13
+      - 16
+      - 23
+      4: 3.8.20
+      5: 0.17.7
+      8:
+      - 5
+      13: linux-x86_64

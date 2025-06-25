@@ -1,0 +1,23 @@
+Loaded splits from /home/tuandang/tuandang/quanganh/visualnav-transformer/train/Unified/config/splits/combined_splits.yaml
+Dataset: combined
+Train scenes: 156
+Val scenes: 27
+Test scenes: 26
+Traceback (most recent call last):
+  File "Train.py", line 724, in <module>
+    main()
+  File "Train.py", line 700, in main
+    trainer = UnifiedTrainerWithCurriculum(config)
+  File "Train.py", line 45, in __init__
+    super().__init__(config)
+  File "/home/tuandang/tuandang/quanganh/visualnav-transformer/train/TwoStage/two_stage_train.py", line 40, in __init__
+    self.env = AI2ThorNoMaDEnv(
+  File "/home/tuandang/tuandang/quanganh/visualnav-transformer/train/nomad_rl/environments/ai2thor_nomad_env.py", line 45, in __init__
+    self.controller = Controller(
+  File "/home/tuandang/anaconda3/envs/nomad_train/lib/python3.8/site-packages/ai2thor/controller.py", line 440, in __init__
+    self.start(
+  File "/home/tuandang/anaconda3/envs/nomad_train/lib/python3.8/site-packages/ai2thor/controller.py", line 1124, in start
+    self.check_x_display(env["DISPLAY"])
+  File "/home/tuandang/anaconda3/envs/nomad_train/lib/python3.8/site-packages/ai2thor/controller.py", line 928, in check_x_display
+    assert (
+AssertionError: Invalid DISPLAY :0.0 - cannot find X server with xdpyinfo
