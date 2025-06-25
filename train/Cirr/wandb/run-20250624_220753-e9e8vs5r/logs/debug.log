@@ -1,0 +1,23 @@
+2025-06-24 22:07:53,220 INFO    MainThread:1012197 [wandb_setup.py:_flush():70] Current SDK version is 0.19.11
+2025-06-24 22:07:53,220 INFO    MainThread:1012197 [wandb_setup.py:_flush():70] Configure stats pid to 1012197
+2025-06-24 22:07:53,220 INFO    MainThread:1012197 [wandb_setup.py:_flush():70] Loading settings from /home/tuandang/.config/wandb/settings
+2025-06-24 22:07:53,220 INFO    MainThread:1012197 [wandb_setup.py:_flush():70] Loading settings from /home/tuandang/tuandang/quanganh/visualnav-transformer/train/Cirr/wandb/settings
+2025-06-24 22:07:53,220 INFO    MainThread:1012197 [wandb_setup.py:_flush():70] Loading settings from environment variables
+2025-06-24 22:07:53,220 INFO    MainThread:1012197 [wandb_init.py:setup_run_log_directory():724] Logging user logs to /home/tuandang/tuandang/quanganh/visualnav-transformer/train/Cirr/wandb/run-20250624_220753-e9e8vs5r/logs/debug.log
+2025-06-24 22:07:53,220 INFO    MainThread:1012197 [wandb_init.py:setup_run_log_directory():725] Logging internal logs to /home/tuandang/tuandang/quanganh/visualnav-transformer/train/Cirr/wandb/run-20250624_220753-e9e8vs5r/logs/debug-internal.log
+2025-06-24 22:07:53,220 INFO    MainThread:1012197 [wandb_init.py:init():852] calling init triggers
+2025-06-24 22:07:53,220 INFO    MainThread:1012197 [wandb_init.py:init():857] wandb.init called with sweep_config: {}
+config: {'dataset': 'combined', 'image_size': [224, 224], 'max_episode_steps': 500, 'success_distance': 1.0, 'context_size': 5, 'goal_prob': 0.5, 'eval_goal_prob': 1.0, 'encoding_size': 256, 'mha_num_attention_heads': 4, 'mha_num_attention_layers': 4, 'mha_ff_dim_factor': 4, 'hidden_dim': 512, 'lstm_hidden_size': 256, 'lstm_num_layers': 2, 'curriculum_window_size': 100, 'curriculum_success_threshold': 0.6, 'curriculum_min_episodes': 50, 'curriculum_update_freq': 10, 'training_stage': 1, 'stage1_timesteps': 1000000, 'stage2_timesteps': 2000000, 'learning_rate': 0.0003, 'value_clip': 10.0, 'stage1_learning_rate': 0.001, 'stage2_learning_rate': 0.0001, 'success_reward': 100.0, 'distance_weight': 50.0, 'step_penalty': 0.001, 'collision_penalty': 2.0, 'exploration_bonus': 3.0, 'curiosity_weight': 0.1, 'rollout_steps': 1024, 'buffer_size': 1024, 'batch_size': 32, 'ppo_epochs': 3, 'gamma': 0.99, 'lam': 0.95, 'clip_ratio': 0.2, 'entropy_coef': 0.1, 'value_coef': 0.5, 'distance_coef': 0.1, 'auxiliary_coef': 0.1, 'max_grad_norm': 0.5, 'use_amp': True, 'device': 'cuda', 'eval_episodes': 20, 'val_freq': 100, 'eval_freq': 100, 'log_freq': 10, 'save_freq': 50, 'save_dir': './checkpoints/curriculum', 'use_wandb': True, 'wandb_project': 'nomad-rl-curriculum', 'run_name': 'curriculum_training', '_wandb': {}}
+2025-06-24 22:07:53,220 INFO    MainThread:1012197 [wandb_init.py:init():893] starting backend
+2025-06-24 22:07:53,220 INFO    MainThread:1012197 [wandb_init.py:init():897] sending inform_init request
+2025-06-24 22:07:53,233 INFO    MainThread:1012197 [backend.py:_multiprocessing_setup():101] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-06-24 22:07:53,233 INFO    MainThread:1012197 [wandb_init.py:init():907] backend started and connected
+2025-06-24 22:07:53,235 INFO    MainThread:1012197 [wandb_init.py:init():1005] updated telemetry
+2025-06-24 22:07:53,246 INFO    MainThread:1012197 [wandb_init.py:init():1029] communicating run to backend with 90.0 second timeout
+2025-06-24 22:07:53,540 INFO    MainThread:1012197 [wandb_init.py:init():1104] starting run threads in backend
+2025-06-24 22:07:53,584 INFO    MainThread:1012197 [wandb_run.py:_console_start():2573] atexit reg
+2025-06-24 22:07:53,585 INFO    MainThread:1012197 [wandb_run.py:_redirect():2421] redirect: wrap_raw
+2025-06-24 22:07:53,585 INFO    MainThread:1012197 [wandb_run.py:_redirect():2490] Wrapping output streams.
+2025-06-24 22:07:53,585 INFO    MainThread:1012197 [wandb_run.py:_redirect():2513] Redirects installed.
+2025-06-24 22:07:53,586 INFO    MainThread:1012197 [wandb_init.py:init():1150] run started, returning control to user process
+2025-06-24 22:07:57,799 INFO    MsgRouterThr:1012197 [mailbox.py:close():129] [no run ID] Closing mailbox, abandoning 1 handles.

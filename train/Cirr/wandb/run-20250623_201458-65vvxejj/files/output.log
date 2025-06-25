@@ -1,0 +1,39 @@
+Loaded splits from /home/tuandang/tuandang/quanganh/visualnav-transformer/train/Unified/config/splits/combined_splits.yaml
+Dataset: combined
+Train scenes: 156
+Val scenes: 27
+Test scenes: 26
+/home/tuandang/miniconda3/envs/nomad_train/lib/python3.8/site-packages/torch/nn/modules/transformer.py:307: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+/home/tuandang/tuandang/quanganh/visualnav-transformer/train/TwoStage/two_stage_train.py:78: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  self.scaler = GradScaler() if self.use_amp else None
+Starting unified training with curriculum learning for 1000000 timesteps...
+Dataset: combined
+Stage: 1
+Using single environment instance to avoid Unity conflicts
+Train.py:153: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast():
+Train.py:233: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast():
+/home/tuandang/tuandang/quanganh/visualnav-transformer/train/TwoStage/two_stage_train.py:271: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast():
+Traceback (most recent call last):
+  File "Train.py", line 674, in <module>
+    main()
+  File "Train.py", line 653, in main
+    results = trainer.train_val_test(config[f'stage{args.stage}_timesteps'])
+  File "Train.py", line 358, in train_val_test
+    rollout_stats = self.collect_rollouts(self.config['rollout_steps'])
+  File "Train.py", line 170, in collect_rollouts
+    next_obs, _, done, info = self.env.step(action.cpu().item())
+  File "/home/tuandang/tuandang/quanganh/visualnav-transformer/train/nomad_rl/environments/ai2thor_nomad_env.py", line 125, in step
+    event = self.controller.step(action=action_map[action])
+  File "/home/tuandang/miniconda3/envs/nomad_train/lib/python3.8/site-packages/ai2thor/controller.py", line 979, in step
+    self.last_event = self.server.receive()
+  File "/home/tuandang/miniconda3/envs/nomad_train/lib/python3.8/site-packages/ai2thor/fifo_server.py", line 229, in receive
+    metadata, files = self._recv_message(
+  File "/home/tuandang/miniconda3/envs/nomad_train/lib/python3.8/site-packages/ai2thor/fifo_server.py", line 145, in _recv_message
+    header = self._read_with_timeout(
+  File "/home/tuandang/miniconda3/envs/nomad_train/lib/python3.8/site-packages/ai2thor/fifo_server.py", line 123, in _read_with_timeout
+    r, w, e = select.select([server_pipe], [], [], timeout)
+KeyboardInterrupt

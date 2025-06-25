@@ -16,22 +16,24 @@ import sys
 sys.path.append(r'/home/tuandang/tuandang/quanganh/visualnav-transformer/train')
 
 from nomad_rl.environments.ai2thor_nomad_env import AI2ThorNoMaDEnv
-from nomad_rl2.nomad_model import (
+from TwoStage.nomad_model import (
     EnhancedNoMaDRL, MultiComponentRewardCalculator, 
     CurriculumManager, EvaluationMetrics
 )
 
 from nomad_rl.models.nomad_rl_model import prepare_observation, PPOBuffer
 
+sys.path.append(r'/home/tuandang/tuandang/quanganh/visualnav-transformer/train/Cirr')
+from Cirr import EnhancedCurriculumManager
+
 class TwoStageTrainer:
-    """Two-stage training for NoMaD-RL with curriculum learning"""
     def __init__(self, config: Dict):
         self.config = config
         self.device = torch.device(config['device'] if torch.cuda.is_available() else 'cpu')
         self.stage = config.get('training_stage', 1)
         
         # Initialize curriculum manager
-        self.curriculum_manager = CurriculumManager(config)
+        self.curriculum_manager = EnhancedCurriculumManager(config)
         curriculum_settings = self.curriculum_manager.get_current_settings()
         
         # Environment with curriculum settings
@@ -234,7 +236,6 @@ class TwoStageTrainer:
         return rollout_stats
     
     def update_policy(self) -> Dict[str, float]:
-        """Update policy with auxiliary losses for stage 1"""
         batch = self.buffer.get()
         update_stats = {
             'policy_loss': 0,
@@ -250,6 +251,7 @@ class TwoStageTrainer:
         advantages = batch['advantages']
         advantages = (advantages - advantages.mean()) / (advantages.std() + 1e-8)
         
+        # Add early stopping if KL divergence too high
         for epoch in range(self.ppo_epochs):
             indices = torch.randperm(len(advantages))
             
@@ -264,141 +266,66 @@ class TwoStageTrainer:
                 mb_returns = batch['returns'][mb_indices]
                 mb_old_values = batch['values'][mb_indices]
                 
-                # Forward pass with mixed precision
-                if self.use_amp:
-                    with autocast():
-                        outputs = self.model.forward(mb_obs, mode="all")
-                        log_probs = outputs['action_dist'].log_prob(mb_actions)
-                        values = outputs['values']
-                        entropy = outputs['action_dist'].entropy()
-                        
-                        # PPO losses
-                        ratio = torch.exp(log_probs - mb_old_log_probs)
-                        surr1 = ratio * mb_advantages
-                        surr2 = torch.clamp(ratio, 1 - self.clip_ratio, 1 + self.clip_ratio) * mb_advantages
-                        policy_loss = -torch.min(surr1, surr2).mean()
-                        
-                        value_pred_clipped = mb_old_values + torch.clamp(
-                            values - mb_old_values, -self.clip_ratio, self.clip_ratio
-                        )
-                        value_losses = (values - mb_returns).pow(2)
-                        value_losses_clipped = (value_pred_clipped - mb_returns).pow(2)
-                        value_loss = 0.5 * torch.max(value_losses, value_losses_clipped).mean()
-                        
-                        entropy_loss = -entropy.mean()
-                        
-                        # Distance loss
-                        distance_loss = torch.tensor(0.0, device=self.device)
-                        if mb_obs['goal_mask'].sum() < len(mb_obs['goal_mask']):
-                            goal_conditioned_mask = (mb_obs['goal_mask'].squeeze() == 0)
-                            if goal_conditioned_mask.sum() > 0:
-                                predicted_distances = outputs['distances'][goal_conditioned_mask]
-                                target_distances = -mb_returns[goal_conditioned_mask]
-                                distance_loss = F.mse_loss(
-                                    predicted_distances.view(-1), 
-                                    target_distances.view(-1)
-                                )
-                        
-                        # Auxiliary losses (Stage 1 only)
-                        auxiliary_loss = torch.tensor(0.0, device=self.device)
-                        if self.stage == 1 and self.model.use_auxiliary_heads:
-                            # Collision prediction loss (binary cross-entropy)
-                            if 'collision_labels' in batch:
-                                collision_pred = outputs['collision_prediction']
-                                collision_labels = batch['collision_labels'][mb_indices]
-                                collision_loss = F.binary_cross_entropy(
-                                    collision_pred.squeeze(), 
-                                    collision_labels.float()
-                                )
-                                auxiliary_loss += collision_loss
-                            
-                            # Exploration prediction loss
-                            if 'exploration_labels' in batch:
-                                exploration_pred = outputs['exploration_prediction']
-                                exploration_labels = batch['exploration_labels'][mb_indices]
-                                exploration_loss = F.mse_loss(
-                                    exploration_pred.squeeze(),
-                                    exploration_labels
-                                )
-                                auxiliary_loss += exploration_loss
-                        
-                        # Total loss
-                        total_loss = (
-                            policy_loss + 
-                            self.value_coef * value_loss + 
-                            self.entropy_coef * entropy_loss +
-                            self.distance_coef * distance_loss +
-                            self.auxiliary_coef * auxiliary_loss
-                        )
-                    
-                    # Backward pass with mixed precision
-                    self.optimizer.zero_grad()
-                    self.scaler.scale(total_loss).backward()
-                    self.scaler.unscale_(self.optimizer)
-                    nn.utils.clip_grad_norm_(self.model.parameters(), self.max_grad_norm)
-                    self.scaler.step(self.optimizer)
-                    self.scaler.update()
-                    
-                else:
-                    # Standard precision training
-                    outputs = self.model.forward(mb_obs, mode="all")
-                    log_probs = outputs['action_dist'].log_prob(mb_actions)
-                    values = outputs['values']
-                    entropy = outputs['action_dist'].entropy()
-                    
-                    # Compute losses (same as above)
-                    ratio = torch.exp(log_probs - mb_old_log_probs)
-                    surr1 = ratio * mb_advantages
-                    surr2 = torch.clamp(ratio, 1 - self.clip_ratio, 1 + self.clip_ratio) * mb_advantages
-                    policy_loss = -torch.min(surr1, surr2).mean()
-                    
-                    value_pred_clipped = mb_old_values + torch.clamp(
-                        values - mb_old_values, -self.clip_ratio, self.clip_ratio
-                    )
-                    value_losses = (values - mb_returns).pow(2)
-                    value_losses_clipped = (value_pred_clipped - mb_returns).pow(2)
-                    value_loss = 0.5 * torch.max(value_losses, value_losses_clipped).mean()
-                    
-                    entropy_loss = -entropy.mean()
-                    
-                    # Distance and auxiliary losses
-                    distance_loss = torch.tensor(0.0, device=self.device)
-                    auxiliary_loss = torch.tensor(0.0, device=self.device)
-                    
-                    total_loss = (
-                        policy_loss + 
-                        self.value_coef * value_loss + 
-                        self.entropy_coef * entropy_loss +
-                        self.distance_coef * distance_loss +
-                        self.auxiliary_coef * auxiliary_loss
-                    )
-                    
-                    self.optimizer.zero_grad()
-                    total_loss.backward()
-                    nn.utils.clip_grad_norm_(self.model.parameters(), self.max_grad_norm)
-                    self.optimizer.step()
+                log_probs, values, entropy = self.model.evaluate_actions(mb_obs, mb_actions)
+                
+                ratio = torch.exp(log_probs - mb_old_log_probs)
+                surr1 = ratio * mb_advantages
+                surr2 = torch.clamp(ratio, 1 - self.clip_ratio, 1 + self.clip_ratio) * mb_advantages
+                policy_loss = -torch.min(surr1, surr2).mean()
+                
+                # Clipped value loss with additional clamping
+                value_pred_clipped = mb_old_values + torch.clamp(
+                    values - mb_old_values, -self.clip_ratio, self.clip_ratio
+                )
+                value_losses = (values - mb_returns).pow(2)
+                value_losses_clipped = (value_pred_clipped - mb_returns).pow(2)
+                value_loss = 0.5 * torch.max(value_losses, value_losses_clipped).mean()
+                
+                # Additional value loss clamping to prevent explosion
+                if hasattr(self.config, 'value_clip'):
+                    value_loss = torch.clamp(value_loss, max=self.config['value_clip'])
+                
+                # Entropy bonus (negative because we maximize)
+                entropy_loss = -entropy.mean()
+                
+                # Total loss
+                total_loss = (
+                    policy_loss + 
+                    self.value_coef * value_loss + 
+                    self.entropy_coef * entropy_loss
+                )
+                
+                # Optimize
+                self.optimizer.zero_grad()
+                total_loss.backward()
+                nn.utils.clip_grad_norm_(self.model.parameters(), self.max_grad_norm)
+                self.optimizer.step()
                 
                 # Track statistics
                 with torch.no_grad():
-                    approx_kl = ((log_probs - mb_old_log_probs).exp() - 1 - (log_probs - mb_old_log_probs)).mean()
+                    approx_kl = ((log_probs - mb_old_log_probs).exp() - 1 - 
+                                (log_probs - mb_old_log_probs)).mean()
                     clip_fraction = ((ratio - 1).abs() > self.clip_ratio).float().mean()
                 
                 update_stats['policy_loss'] += policy_loss.item()
                 update_stats['value_loss'] += value_loss.item()
                 update_stats['entropy_loss'] += entropy_loss.item()
-                update_stats['distance_loss'] += distance_loss.item()
-                update_stats['auxiliary_loss'] += auxiliary_loss.item()
                 update_stats['total_loss'] += total_loss.item()
                 update_stats['approx_kl'] += approx_kl.item()
                 update_stats['clip_fraction'] += clip_fraction.item()
+                
+                # Early stopping if KL too high
+                if approx_kl > 0.02:  # Threshold for early stopping
+                    break
+            
+            # Break epoch loop if KL too high
+            if approx_kl > 0.02:
+                break
         
         # Average statistics
-        num_updates = self.ppo_epochs * (len(advantages) // self.batch_size)
+        num_updates = epoch * (len(advantages) // self.batch_size) + (start // self.batch_size + 1)
         for key in update_stats:
             update_stats[key] /= max(1, num_updates)
-        
-        if self.stage == 1:
-            self.auxiliary_losses.append(update_stats['auxiliary_loss'])
         
         return update_stats
     

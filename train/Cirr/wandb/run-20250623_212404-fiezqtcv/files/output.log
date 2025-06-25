@@ -1,0 +1,65 @@
+Loaded splits from /home/tuandang/tuandang/quanganh/visualnav-transformer/train/Unified/config/splits/combined_splits.yaml
+Dataset: combined
+Train scenes: 156
+Val scenes: 27
+Test scenes: 26
+/home/tuandang/miniconda3/envs/nomad_train/lib/python3.8/site-packages/torch/nn/modules/transformer.py:307: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+/home/tuandang/tuandang/quanganh/visualnav-transformer/train/TwoStage/two_stage_train.py:78: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  self.scaler = GradScaler() if self.use_amp else None
+Starting unified training with curriculum learning for 1000000 timesteps...
+Dataset: combined
+Stage: 1
+Using single environment instance to avoid Unity conflicts
+Train.py:153: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast():
+Train.py:233: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast():
+
+--- Stage 1 Update 10 (Timesteps: 10240) ---
+Curriculum Level: 0 (Basic Navigation)
+Episodes at Level: 71
+Progress: 0/6 levels
+Episode Reward: 394.78 ± 248.50
+Episode Length: 130.8
+Success Rate: 23.94%
+Policy Loss: -0.0342
+Value Loss: 1434.9257
+Entropy: 1.1852
+Approx KL: 0.0473
+
+--- Stage 1 Update 20 (Timesteps: 20480) ---
+Curriculum Level: 0 (Basic Navigation)
+Episodes at Level: 144
+Progress: 0/6 levels
+Episode Reward: 413.23 ± 223.85
+Episode Length: 132.7
+Success Rate: 22.00%
+Policy Loss: 0.0044
+Value Loss: 3514.0496
+Entropy: 0.7968
+Approx KL: 0.0098
+
+--- Stage 1 Update 30 (Timesteps: 30720) ---
+Curriculum Level: 0 (Basic Navigation)
+Episodes at Level: 209
+Progress: 0/6 levels
+Episode Reward: 401.55 ± 254.78
+Episode Length: 143.0
+Success Rate: 10.00%
+Policy Loss: 0.0630
+Value Loss: 10087.3340
+Entropy: 0.7499
+Approx KL: 0.0323
+
+--- Stage 1 Update 40 (Timesteps: 40960) ---
+Curriculum Level: 0 (Basic Navigation)
+Episodes at Level: 269
+Progress: 0/6 levels
+Episode Reward: 394.49 ± 238.98
+Episode Length: 148.4
+Success Rate: 3.00%
+Policy Loss: 0.1237
+Value Loss: 125887.7031
+Entropy: 0.4827
+Approx KL: 0.0280

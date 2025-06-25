@@ -1,0 +1,31 @@
+Loaded splits from ./config/splits/combined_splits.yaml
+Dataset: combined
+Train scenes: 156
+Val scenes: 27
+Test scenes: 26
+/home/tuandang/miniconda3/envs/nomad_train/lib/python3.8/site-packages/torch/nn/modules/transformer.py:307: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+/home/tuandang/tuandang/quanganh/visualnav-transformer/train/TwoStage/two_stage_train.py:75: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  self.scaler = GradScaler() if self.use_amp else None
+Environment initialized with 12 iTHOR and 15 RoboTHOR scenes
+Initializing iTHOR controller for scene: FloorPlan319
+Environment initialized with 12 iTHOR and 14 RoboTHOR scenes
+Initializing RoboTHOR controller for scene: FloorPlan_Test7_1
+Traceback (most recent call last):
+  File "Train.py", line 585, in <module>
+    main()
+  File "Train.py", line 561, in main
+    trainer = UnifiedTrainerWithCurriculum(config)
+  File "Train.py", line 57, in __init__
+    self.test_env = self._create_environment(
+  File "Train.py", line 94, in _create_environment
+    return EnhancedAI2ThorEnv(
+  File "/home/tuandang/tuandang/quanganh/visualnav-transformer/train/Unified/env.py", line 51, in __init__
+    self._initialize_controller()
+  File "/home/tuandang/tuandang/quanganh/visualnav-transformer/train/Unified/env.py", line 92, in _initialize_controller
+    self.controller = Controller(
+  File "/home/tuandang/miniconda3/envs/nomad_train/lib/python3.8/site-packages/ai2thor/controller.py", line 513, in __init__
+    self._build = self.find_build(local_build, commit_id, branch, platform)
+  File "/home/tuandang/miniconda3/envs/nomad_train/lib/python3.8/site-packages/ai2thor/controller.py", line 1306, in find_build
+    raise ValueError(
+ValueError: Invalid commit_id: 5e1af1e57b07a9b5e9fbb81a7e68e6375e3c3608 - no build exists for arch=Linux platforms=Linux64

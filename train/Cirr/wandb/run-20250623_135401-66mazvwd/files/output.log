@@ -1,0 +1,26 @@
+iTHOR kitchen: 24 train, 3 val, 3 test
+iTHOR living_room: 24 train, 3 val, 3 test
+iTHOR bedroom: 24 train, 3 val, 3 test
+iTHOR bathroom: 24 train, 3 val, 3 test
+Saved train split: 156 scenes (iTHOR: 96, RoboTHOR: 60)
+Saved val split: 27 scenes (iTHOR: 12, RoboTHOR: 15)
+Saved test split: 26 scenes (iTHOR: 12, RoboTHOR: 14)
+
+Saved combined splits to ./config/splits/combined_splits.yaml
+Saved metadata to ./config/splits/combined_metadata.yaml
+Dataset: combined
+Train scenes: 156
+Val scenes: 27
+Test scenes: 26
+/home/tuandang/miniconda3/envs/nomad_train/lib/python3.8/site-packages/torch/nn/modules/transformer.py:307: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+Traceback (most recent call last):
+  File "Train.py", line 585, in <module>
+    main()
+  File "Train.py", line 561, in main
+    trainer = UnifiedTrainerWithCurriculum(config)
+  File "Train.py", line 45, in __init__
+    super().__init__(config)
+  File "/home/tuandang/tuandang/quanganh/visualnav-transformer/train/TwoStage/two_stage_train.py", line 70, in __init__
+    stage_lr = config.get(f'stage{self.stage}_learning_rate', config['learning_rate'])
+KeyError: 'learning_rate'

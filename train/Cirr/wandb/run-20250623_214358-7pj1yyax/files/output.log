@@ -1,0 +1,115 @@
+Loaded splits from /home/tuandang/tuandang/quanganh/visualnav-transformer/train/Unified/config/splits/combined_splits.yaml
+Dataset: combined
+Train scenes: 156
+Val scenes: 27
+Test scenes: 26
+/home/tuandang/miniconda3/envs/nomad_train/lib/python3.8/site-packages/torch/nn/modules/transformer.py:307: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+/home/tuandang/tuandang/quanganh/visualnav-transformer/train/TwoStage/two_stage_train.py:78: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  self.scaler = GradScaler() if self.use_amp else None
+Starting unified training with curriculum learning for 2000000 timesteps...
+Dataset: combined
+Stage: 2
+Using single environment instance to avoid Unity conflicts
+Train.py:153: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast():
+Train.py:233: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast():
+
+--- Stage 2 Update 10 (Timesteps: 10240) ---
+Curriculum Level: 0 (Basic Navigation)
+Episodes at Level: 66
+Progress: 0/6 levels
+Episode Reward: 414.50 ± 271.81
+Episode Length: 142.2
+Success Rate: 13.64%
+Policy Loss: -0.0000
+Value Loss: 4112.6438
+Entropy: 1.3863
+Approx KL: -0.0000
+
+--- Stage 2 Update 20 (Timesteps: 20480) ---
+Curriculum Level: 0 (Basic Navigation)
+Episodes at Level: 129
+Progress: 0/6 levels
+Episode Reward: 397.97 ± 259.99
+Episode Length: 143.7
+Success Rate: 11.00%
+Policy Loss: 0.0000
+Value Loss: 780659.0612
+Entropy: 1.3863
+Approx KL: 0.0000
+
+--- Stage 2 Update 30 (Timesteps: 30720) ---
+Curriculum Level: 0 (Basic Navigation)
+Episodes at Level: 197
+Progress: 0/6 levels
+Episode Reward: 370.81 ± 236.12
+Episode Length: 141.1
+Success Rate: 12.00%
+Policy Loss: 0.0000
+Value Loss: 13626660.6458
+Entropy: 1.3863
+Approx KL: 0.0000
+
+--- Stage 2 Update 40 (Timesteps: 40960) ---
+Curriculum Level: 0 (Basic Navigation)
+Episodes at Level: 265
+Progress: 0/6 levels
+Episode Reward: 369.48 ± 241.27
+Episode Length: 141.1
+Success Rate: 12.00%
+Policy Loss: -0.0000
+Value Loss: 175390736.8333
+Entropy: 1.3863
+Approx KL: 0.0000
+Traceback (most recent call last):
+  File "Train.py", line 674, in <module>
+    main()
+  File "Train.py", line 653, in main
+    results = trainer.train_val_test(config[f'stage{args.stage}_timesteps'])
+  File "Train.py", line 361, in train_val_test
+    update_stats = self.update_policy()
+  File "/home/tuandang/tuandang/quanganh/visualnav-transformer/train/TwoStage/two_stage_train.py", line 269, in update_policy
+    log_probs, values, entropy = self.model.evaluate_actions(mb_obs, mb_actions)
+  File "/home/tuandang/tuandang/quanganh/visualnav-transformer/train/TwoStage/nomad_model.py", line 166, in evaluate_actions
+    outputs = self.forward(observations, mode="all")
+  File "/home/tuandang/tuandang/quanganh/visualnav-transformer/train/TwoStage/nomad_model.py", line 116, in forward
+    results['action_dist'] = Categorical(logits=policy_logits)
+  File "/home/tuandang/miniconda3/envs/nomad_train/lib/python3.8/site-packages/torch/distributions/categorical.py", line 71, in __init__
+    super().__init__(batch_shape, validate_args=validate_args)
+  File "/home/tuandang/miniconda3/envs/nomad_train/lib/python3.8/site-packages/torch/distributions/distribution.py", line 70, in __init__
+    raise ValueError(
+ValueError: Expected parameter logits (Tensor of shape (32, 4)) of distribution Categorical(logits: torch.Size([32, 4])) to satisfy the constraint IndependentConstraint(Real(), 1), but found invalid values:
+tensor([[nan, nan, nan, nan],
+        [nan, nan, nan, nan],
+        [nan, nan, nan, nan],
+        [nan, nan, nan, nan],
+        [nan, nan, nan, nan],
+        [nan, nan, nan, nan],
+        [nan, nan, nan, nan],
+        [nan, nan, nan, nan],
+        [nan, nan, nan, nan],
+        [nan, nan, nan, nan],
+        [nan, nan, nan, nan],
+        [nan, nan, nan, nan],
+        [nan, nan, nan, nan],
+        [nan, nan, nan, nan],
+        [nan, nan, nan, nan],
+        [nan, nan, nan, nan],
+        [nan, nan, nan, nan],
+        [nan, nan, nan, nan],
+        [nan, nan, nan, nan],
+        [nan, nan, nan, nan],
+        [nan, nan, nan, nan],
+        [nan, nan, nan, nan],
+        [nan, nan, nan, nan],
+        [nan, nan, nan, nan],
+        [nan, nan, nan, nan],
+        [nan, nan, nan, nan],
+        [nan, nan, nan, nan],
+        [nan, nan, nan, nan],
+        [nan, nan, nan, nan],
+        [nan, nan, nan, nan],
+        [nan, nan, nan, nan],
+        [nan, nan, nan, nan]], device='cuda:0', grad_fn=<SubBackward0>)

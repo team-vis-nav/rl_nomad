@@ -1,0 +1,29 @@
+Loaded splits from /home/tuandang/tuandang/quanganh/visualnav-transformer/train/Unified/config/splits/combined_splits.yaml
+Dataset: combined
+Train scenes: 156
+Val scenes: 27
+Test scenes: 26
+/home/tuandang/miniconda3/envs/nomad_train/lib/python3.8/site-packages/torch/nn/modules/transformer.py:307: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+/home/tuandang/tuandang/quanganh/visualnav-transformer/train/TwoStage/two_stage_train.py:75: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  self.scaler = GradScaler() if self.use_amp else None
+Environment initialized with 12 iTHOR and 15 RoboTHOR scenes
+Initializing RoboTHOR controller for scene: FloorPlan_Val1_1
+Environment initialized with 12 iTHOR and 14 RoboTHOR scenes
+Initializing RoboTHOR controller for scene: FloorPlan_Train3_1
+Starting unified training with curriculum learning for 1000000 timesteps...
+Dataset: combined
+Stage: 1
+Initial curriculum level: 0
+Train.py:153: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast():
+Traceback (most recent call last):
+  File "Train.py", line 586, in <module>
+    main()
+  File "Train.py", line 565, in main
+    results = trainer.train_val_test(config[f'stage{args.stage}_timesteps'])
+  File "Train.py", line 265, in train_val_test
+    rollout_stats = self.collect_rollouts(self.config['rollout_steps'])
+  File "Train.py", line 202, in collect_rollouts
+    self.curriculum_manager.update(
+TypeError: update() got an unexpected keyword argument 'episode_success'

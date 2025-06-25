@@ -1,0 +1,152 @@
+Loaded splits from /home/tuandang/tuandang/quanganh/visualnav-transformer/train/Unified/config/splits/combined_splits.yaml
+Dataset: combined
+Train scenes: 156
+Val scenes: 27
+Test scenes: 26
+/home/tuandang/miniconda3/envs/nomad_train/lib/python3.8/site-packages/torch/nn/modules/transformer.py:307: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+/home/tuandang/tuandang/quanganh/visualnav-transformer/train/TwoStage/two_stage_train.py:78: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  self.scaler = GradScaler() if self.use_amp else None
+Environment initialized with 12 iTHOR and 15 RoboTHOR scenes
+Initializing RoboTHOR controller for scene: FloorPlan_Val3_3
+Environment initialized with 12 iTHOR and 14 RoboTHOR scenes
+Initializing iTHOR controller for scene: FloorPlan413
+Starting unified training with curriculum learning for 1000000 timesteps...
+Dataset: combined
+Stage: 1
+Initial curriculum level: 0
+Train.py:152: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast():
+Train.py:233: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast():
+/home/tuandang/tuandang/quanganh/visualnav-transformer/train/TwoStage/two_stage_train.py:271: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast():
+
+--- Stage 1 Update 10 (Timesteps: 5120) ---
+Curriculum Level: 0 (Basic Navigation)
+Episodes at Level: 52
+Progress: 0/6 levels
+Episode Reward: 28.72 ± 44.07
+Episode Length: 88.4
+Success Rate: 26.92%
+Policy Loss: 0.0102
+Value Loss: 14.4462
+Entropy: 1.2167
+Approx KL: 0.0219
+
+--- Stage 1 Update 20 (Timesteps: 10240) ---
+Curriculum Level: 0 (Basic Navigation)
+Episodes at Level: 104
+Progress: 0/6 levels
+Episode Reward: 27.18 ± 42.00
+Episode Length: 89.6
+Success Rate: 22.00%
+Policy Loss: 0.0098
+Value Loss: 307.9404
+Entropy: 0.6733
+Approx KL: 0.0222
+
+--- Stage 1 Update 30 (Timesteps: 15360) ---
+Curriculum Level: 0 (Basic Navigation)
+Episodes at Level: 154
+Progress: 0/6 levels
+Episode Reward: 15.44 ± 31.68
+Episode Length: 95.2
+Success Rate: 9.00%
+Policy Loss: 0.0036
+Value Loss: 1177.7482
+Entropy: 0.1885
+Approx KL: 0.0116
+
+--- Stage 1 Update 40 (Timesteps: 20480) ---
+Curriculum Level: 0 (Basic Navigation)
+Episodes at Level: 204
+Progress: 0/6 levels
+Episode Reward: 3.25 ± 13.00
+Episode Length: 99.6
+Success Rate: 1.00%
+Policy Loss: -0.0001
+Value Loss: 1822.2297
+Entropy: 0.0139
+Approx KL: 0.0000
+
+--- Stage 1 Update 50 (Timesteps: 25600) ---
+Curriculum Level: 0 (Basic Navigation)
+Episodes at Level: 254
+Progress: 0/6 levels
+Episode Reward: 0.05 ± 1.33
+Episode Length: 100.0
+Success Rate: 0.00%
+Policy Loss: 0.0000
+Value Loss: 4156.6313
+Entropy: 0.0094
+Approx KL: 0.0000
+Model saved to ./checkpoints/curriculum/combined_stage1_50.pth
+
+--- Stage 1 Update 60 (Timesteps: 30720) ---
+Curriculum Level: 0 (Basic Navigation)
+Episodes at Level: 304
+Progress: 0/6 levels
+Episode Reward: 0.08 ± 1.17
+Episode Length: 100.0
+Success Rate: 0.00%
+Policy Loss: -0.0000
+Value Loss: 12108.0774
+Entropy: 0.0001
+Approx KL: 0.0000
+
+--- Stage 1 Update 70 (Timesteps: 35840) ---
+Curriculum Level: 0 (Basic Navigation)
+Episodes at Level: 354
+Progress: 0/6 levels
+Episode Reward: 0.13 ± 1.20
+Episode Length: 100.0
+Success Rate: 0.00%
+Policy Loss: -0.0000
+Value Loss: 28433.9676
+Entropy: 0.0001
+Approx KL: 0.0000
+
+--- Stage 1 Update 80 (Timesteps: 40960) ---
+Curriculum Level: 0 (Basic Navigation)
+Episodes at Level: 404
+Progress: 0/6 levels
+Episode Reward: 0.05 ± 1.04
+Episode Length: 100.0
+Success Rate: 0.00%
+Policy Loss: 0.0000
+Value Loss: 68586.1990
+Entropy: 0.0000
+Approx KL: 0.0000
+
+--- Stage 1 Update 90 (Timesteps: 46080) ---
+Curriculum Level: 0 (Basic Navigation)
+Episodes at Level: 454
+Progress: 0/6 levels
+Episode Reward: -0.10 ± 0.92
+Episode Length: 100.0
+Success Rate: 0.00%
+Policy Loss: 0.0000
+Value Loss: 160059.5267
+Entropy: 0.0000
+Approx KL: 0.0000
+
+--- Stage 1 Update 100 (Timesteps: 51200) ---
+Curriculum Level: 0 (Basic Navigation)
+Episodes at Level: 504
+Progress: 0/6 levels
+Episode Reward: -0.10 ± 0.92
+Episode Length: 100.0
+Success Rate: 0.00%
+Policy Loss: 0.0000
+Value Loss: 267323.9779
+Entropy: 0.0003
+Approx KL: 0.0000
+Traceback (most recent call last):
+  File "Train.py", line 585, in <module>
+    main()
+  File "Train.py", line 564, in main
+    results = trainer.train_val_test(config[f'stage{args.stage}_timesteps'])
+  File "Train.py", line 294, in train_val_test
+    val_metrics = self._evaluate_on_split('val', self.val_env)
+AttributeError: 'UnifiedTrainerWithCurriculum' object has no attribute '_evaluate_on_split'

@@ -1,0 +1,135 @@
+_wandb:
+    value:
+        cli_version: 0.19.11
+        m: []
+        python_version: 3.8.5
+        t:
+            "1":
+                - 1
+                - 41
+                - 55
+            "2":
+                - 1
+                - 41
+                - 55
+            "3":
+                - 13
+                - 16
+                - 23
+                - 55
+            "4": 3.8.5
+            "5": 0.19.11
+            "8":
+                - 5
+            "12": 0.19.11
+            "13": linux-x86_64
+auxiliary_coef:
+    value: 0.1
+batch_size:
+    value: 32
+buffer_size:
+    value: 512
+clip_ratio:
+    value: 0.2
+collision_penalty:
+    value: 1
+context_size:
+    value: 5
+curiosity_weight:
+    value: 0.1
+curriculum_min_episodes:
+    value: 100
+curriculum_success_threshold:
+    value: 0.7
+curriculum_update_freq:
+    value: 10
+curriculum_window_size:
+    value: 100
+dataset:
+    value: combined
+device:
+    value: cuda
+distance_coef:
+    value: 0.1
+distance_weight:
+    value: 20
+encoding_size:
+    value: 256
+entropy_coef:
+    value: 0.1
+eval_episodes:
+    value: 20
+eval_freq:
+    value: 100
+eval_goal_prob:
+    value: 1
+exploration_bonus:
+    value: 5
+gamma:
+    value: 0.99
+goal_prob:
+    value: 0.5
+hidden_dim:
+    value: 512
+image_size:
+    value:
+        - 224
+        - 224
+lam:
+    value: 0.95
+learning_rate:
+    value: 0.0003
+log_freq:
+    value: 10
+lstm_hidden_size:
+    value: 256
+lstm_num_layers:
+    value: 2
+max_episode_steps:
+    value: 500
+max_grad_norm:
+    value: 0.5
+mha_ff_dim_factor:
+    value: 4
+mha_num_attention_heads:
+    value: 4
+mha_num_attention_layers:
+    value: 4
+ppo_epochs:
+    value: 3
+rollout_steps:
+    value: 1024
+run_name:
+    value: curriculum_training
+save_dir:
+    value: ./checkpoints/curriculum
+save_freq:
+    value: 50
+stage1_learning_rate:
+    value: 0.001
+stage1_timesteps:
+    value: 1000000
+stage2_learning_rate:
+    value: 0.0001
+stage2_timesteps:
+    value: 2000000
+step_penalty:
+    value: 0.005
+success_distance:
+    value: 1
+success_reward:
+    value: 100
+training_stage:
+    value: 1
+use_amp:
+    value: true
+use_wandb:
+    value: true
+val_freq:
+    value: 100
+value_clip:
+    value: 10
+value_coef:
+    value: 0.5
+wandb_project:
+    value: nomad-rl-curriculum
