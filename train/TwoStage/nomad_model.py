@@ -639,6 +639,5 @@ def prepare_observation(obs: Dict[str, np.ndarray], device: torch.device) -> Dic
             tensor = tensor.unsqueeze(0)  # -> [1, H, W]
         
         torch_obs[key] = tensor
-    print(torch_obs)
     
     return torch_obs

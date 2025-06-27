@@ -12,7 +12,7 @@ from typing import Dict, List, Tuple, Optional
 import time
 from datetime import datetime
 from torch.cuda.amp import autocast, GradScaler
-from torchvision.utils import save_image
+
 import sys
 sys.path.append(r'/home/tuandang/tuandang/quanganh/visualnav-transformer/train')
 
@@ -135,7 +135,6 @@ class UnifiedTrainerWithCurriculum(TwoStageTrainer):
         curriculum_settings = self.curriculum_manager.get_current_settings()
         
         new_scenes = self.curriculum_manager.get_current_scenes(self.all_train_scenes)
-        
         self.env.close()
         self.env = self._create_environment(
             new_scenes,
@@ -159,8 +158,6 @@ class UnifiedTrainerWithCurriculum(TwoStageTrainer):
     def collect_rollouts(self, num_steps: int) -> Dict[str, float]:
         obs = self.env.reset()
         torch_obs = prepare_observation(obs, self.device)
-        print("torch obs: ", torch_obs['rgb'].shape)
-        save_image(torch_obs['rgb'].squeeze(), 'log_img/output_image0.png')
         
         # if self.debug_mode:
         #     for key, val in torch_obs.items():
@@ -215,8 +212,7 @@ class UnifiedTrainerWithCurriculum(TwoStageTrainer):
             reward = self.reward_calculator.calculate_reward(event, next_obs, info, self.env)
             
             next_torch_obs = prepare_observation(next_obs, self.device)
-            save_image(next_torch_obs['rgb'].squeeze(), f"log_img/output_image{step}.png")
-            print("torch obs: ", next_torch_obs['rgb'].shape)
+            
             # Store transition (remove batch dimension for storage)
             store_obs = {}
             for key, val in torch_obs.items():
@@ -263,8 +259,6 @@ class UnifiedTrainerWithCurriculum(TwoStageTrainer):
                 # Reset for new episode
                 obs = self.env.reset()
                 torch_obs = prepare_observation(obs, self.device)
-                print("torch obs: ", torch_obs['rgb'].shape)
-                save_image(torch_obs['rgb'].squeeze(), f"log_img/output_image{step}.png")
                 self.model.reset_hidden()
                 hidden_state = None
                 episode_reward = 0
